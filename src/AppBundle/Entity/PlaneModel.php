@@ -12,6 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PlaneModel
 {
+    Public function __toString()
+    {
+        // return the PlaneModel object with "[manufacturer] [model]" format, when __toString is called.
+        return $this->manufacturer . " " . $this->model;
+    }
+
+
     /**
      * @var int
      *
@@ -187,4 +194,3 @@ class PlaneModel
         return $this->isAvailable;
     }
 }
-
