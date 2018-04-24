@@ -35,6 +35,7 @@ class Review
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="reviewAuthor")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $reviewAuthor;
 

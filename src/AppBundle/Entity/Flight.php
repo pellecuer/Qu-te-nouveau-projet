@@ -67,6 +67,13 @@ class Flight
     private $nbFreeSeats;
 
     /**
+     * @var float
+     *
+     * @ORM\Column(name="SeatPrice", type="float")
+     */
+    private $SeatPrice;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="takeOffTime", type="datetime")
@@ -322,5 +329,29 @@ class Flight
     public function getArrival()
     {
         return $this->arrival;
+    }
+
+    /**
+     * Set seatPrice
+     *
+     * @param float $seatPrice
+     *
+     * @return Flight
+     */
+    public function setSeatPrice($seatPrice)
+    {
+        $this->SeatPrice = $seatPrice;
+
+        return $this;
+    }
+
+    /**
+     * Get seatPrice
+     *
+     * @return float
+     */
+    public function getSeatPrice()
+    {
+        return $this->SeatPrice;
     }
 }

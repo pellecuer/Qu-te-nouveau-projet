@@ -8,6 +8,7 @@
             <tr>
                 <th>Id</th>
                 <th>Nbfreeseats</th>
+                <th>Seatprice</th>
                 <th>Takeofftime</th>
                 <th>Publicationdate</th>
                 <th>Description</th>
@@ -20,6 +21,7 @@
             <tr>
                 <td><a href="{{ path('flight_show', { 'id': flight.id }) }}">{{ flight.id }}</a></td>
                 <td>{{ flight.nbFreeSeats }}</td>
+                <td>{{ flight.SeatPrice }}</td>
                 <td>{% if flight.takeOffTime %}{{ flight.takeOffTime|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if flight.publicationDate %}{{ flight.publicationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ flight.description }}</td>

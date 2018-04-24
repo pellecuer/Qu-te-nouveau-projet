@@ -14,6 +14,10 @@
                 <td>{{ flight.nbFreeSeats }}</td>
             </tr>
             <tr>
+                <th>Seatprice</th>
+                <td>{{ flight.SeatPrice }}</td>
+            </tr>
+            <tr>
                 <th>Takeofftime</th>
                 <td>{% if flight.takeOffTime %}{{ flight.takeOffTime|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
