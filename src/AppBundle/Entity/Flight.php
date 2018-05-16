@@ -104,7 +104,6 @@ class Flight
 
 
 
-
     /**
      * Get id
      *
