@@ -17,29 +17,38 @@ class ReviewType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('text', TextareaType::class, array('attr' => array('maxlenght' => 250, 'label' => 'Description')))
-            ->add('publicationDate', DateType::class, array('data' => new \DateTime('now')))
-            ->add('note', IntegerType::class, array('attr' => array('min' => 0, 'max' => 5, 'label'=> 'Note')))
-            ->add('agreeTerms', CheckboxType::class, array('mapped' => false)) // mapped => false necessaire car le champ agreeTerms ne figure pas ds la table
-            ->add('userRated', EntityType::class, array('class' => 'AppBundle\Entity\User', 'query_builder' => function(EntityRepository $er) {
-                return $er->createQueryBuilder('u')->orderBy('u.lastName', 'ASC');
-            },
-                'choice_label' => 'lastname'))
+            ->add('text', TextareaType::class, array('attr' => array('maxlength' => 250, 'label' => 'Description')))
+            ->add('publicationDate', DateType::class, array('data'=> new \DateTime('now')))
+            ->add('note', IntegerType::class, array('attr' => array('min' =>0, 'max' =>5, 'label' => 'Note')))
+            ->add('agreeTerms', checkboxType::class, array('mapped'=>false))
+            ->add('userRated', EntityType::class, array(
+                'class' => 'AppBundle\Entity\User',
+                'query_builder' => function (entityrepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->orderBy('u.lastName', 'ASC');
+                },
+                'choice_label' => 'lastName'))
             ->add('reviewAuthor');
     }
+
     /**
      * {@inheritdoc} Targeting Review entity
      */
+
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array('data_class' => 'AppBundle\Entity\Review'
+        $resolver->setDefaults(array(
+            'data_class' => 'AppBundle\Entity\Review'
         ));
     }
+
     /**
      * {@inheritdoc} getName() is now deprecated
      */
+
     public function getBlockPrefix()
     {
         return 'appbundle_review';
     }
+
 }
