@@ -80,7 +80,7 @@ class FlightController extends Controller
         //Calculate a time between departure and arrival
         $time = $flightInfo->getTime(
             $distance,
-            $flight ->getPlane() ->getCruiseSpeed()
+            $flight ->getPlane()->getCruiseSpeed()
 
         );
 
@@ -92,7 +92,6 @@ class FlightController extends Controller
             'distance'=> $distance,
             'time' => $time,
             'flight' => $flight,
-
 
             'delete_form' => $deleteForm->createView(),
         ));
